@@ -1,0 +1,26 @@
+<h1>物件登録</h1>
+
+<%= form_with(model: @house, local: true) do |house| %>
+  <div>
+    <%= house.label "物件名" %><br>
+    <%= house.text_field :name %>
+  </div>
+  <div>
+    <%= house.label "賃料" %><br>
+    <%= house.text_field :price %>円
+  </div>
+  <div>
+    <%= house.label "住所" %><br>
+    <%= house.text_field :address %>
+  </div>
+  <div>
+    <%= house.label "築年数" %><br>
+    <%= house.text_field :build %>
+  </div>
+  <div>
+    <%= house.label "備考" %><br>
+    <%= house.text_area :remarks %>
+  </div>
+  <%= house.submit "登録する" %><br>
+  <%= link_to "戻る", houses_path %>
+<% end %>
