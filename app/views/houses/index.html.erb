@@ -10,12 +10,15 @@
   </tr>
   <% @houses.each do |house| %>
   <tr>
-    <td><%= @house.name %></td>
-    <td><%= @house.price %></td>
-    <td><%= @house.address %></td>
-    <td><%= @house.build %></td>
-    <td><%= @house.remarks %></td>
+    <td><%= house.name %></td>
+    <td><%= house.price %></td>
+    <td><%= house.address %></td>
+    <td><%= house.build %></td>
+    <td><%= house.remarks %></td>
     <td><%= link_to "詳細", house_path(house.id) %></td>
+    <td><%= link_to "編集", edit_house_path(house.id) %></td>
+    <td><%= link_to "削除", house_path(house.id), method: :delete, data: { confirm: '削除していいですか' } %></td>
   </tr>
   <% end %>
 </table>
+<%= link_to "物件登録", new_house_path %>
