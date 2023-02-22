@@ -1,0 +1,19 @@
+<h1>物件詳細</h1>
+
+<p>物件名：<%= @house.name %></p>
+<p>賃料：<%= @house.price %>円</p>
+<p>住所：<%= @house.address %></p>
+<p>築年数：<%= @house.build %>年</p>
+<p>備考：<%= @house.remarks %></p>
+
+<% count = 1 %>
+<% @house.stations.each do |s| %>
+  <% unless s.train.empty? %>
+    <p>最寄り駅<%= count %></p>
+    <p>路線名：<%= s.train %></p>
+    <p>駅名：<%= s.name %></p>
+    <p>徒歩分数：<%= s.walk %></p>
+    <% count += 1 %>
+  <% end %>
+<% end %>
+<%= link_to "戻る", houses_path %>
